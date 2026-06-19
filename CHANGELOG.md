@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.1
+
+- Reworked `README.md` and `README.zh-CN.md` into a product-page structure.
+- Added a README demo section with a GIF preview and full MP4 promo video.
+- Added `INSTALL.md` with Codex and Claude Code install paths.
+- Added `RELEASE_DRAFT.md` for GitHub release publishing.
+- Added `PROMO_VIDEO_BRIEF.md` for short-form video production.
+- Added case-study proof files: sample chapter contract, continuity review, and author editing profile.
+- Fixed `scripts/init_novel_project.py` newline handling for Python versions where `Path.write_text(..., newline=...)` is unsupported.
+
 ## 0.2.0
 
 - Renamed the public project from `novel-writer` to PlotRail.

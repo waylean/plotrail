@@ -29,6 +29,12 @@ Add a harness later if you want automated tests, sample project generation, chap
 - Model compatibility.
 - Simple installation instructions.
 - What example chapter text is included.
+- First-screen CTA links: install, case study, example chapters.
+- First-screen demo media: GIF preview linked to the full MP4.
+- macOS/Linux and Windows install paths.
+- Smoke-test command for `scripts/init_novel_project.py`.
+- Explanation that the author approves canon changes.
+- Rename note for `PlotRail` vs installable `novel-writer` folder, placed after the value proposition.
 
 ## Skill Folder Should Include
 
@@ -47,4 +53,9 @@ Current license: MIT, copyright holder `waylean`.
 - Confirm that publishing the first 11 example chapters is intended.
 - Run the skill validator if available.
 - Test `scripts/init_novel_project.py` in a blank folder.
+- Confirm `INSTALL.md` works for Codex and Claude Code.
+- Create a GitHub release using `RELEASE_DRAFT.md`.
+- Add repo topics: `ai-writing`, `ai-agent`, `codex-skill`, `novel-writing`, `writing-tools`, `long-form-fiction`, `ai-skill`.
+- Pin the repository on the GitHub profile.
+- Confirm the promo GIF and MP4 render from `assets/` after the README is published.
 - Do not publish low-quality poster drafts or local experiment assets.

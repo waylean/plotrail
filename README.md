@@ -1,109 +1,195 @@
 <p align="center">
-  <img src="assets/novel-writer-wordmark.svg" alt="PlotRail wordmark" width="820">
+  <img src="assets/plotrail-wordmark.svg" alt="PlotRail wordmark" width="820">
 </p>
 
 <p align="center">
   <a href="README.zh-CN.md">中文</a> · <a href="README.md">English</a>
 </p>
 
-PlotRail is a reusable `SKILL.md` workflow for writing long-form novels with AI agents without losing canon, character state, plot threads, or chapter intent.
+<p align="center">
+  <a href="#install-in-30-seconds">Install</a> ·
+  <a href="#watch-the-demo">Demo</a> ·
+  <a href="#first-prompt-to-run">First prompt</a> ·
+  <a href="#case-study">Case study</a>
+</p>
 
-> Rename notice: PlotRail was formerly published as `novel-writer`. The repository name has changed to make the project's purpose clearer: keeping AI-assisted long-form fiction on a durable plot rail. In this release, the installable skill folder and invocation name remain `novel-writer` for compatibility.
+# PlotRail
 
-Instead of asking an AI to remember an entire book in one chat, this skill turns a novel into a durable project: canon files, chapter contracts, drafts, reviews, research notes, and memory ledgers.
+PlotRail is a canon-aware AI fiction skill that helps Codex, Claude Code, and other file-based agents write long-form stories without losing the plot.
 
-## Why This Exists
-
-AI can write fluent scenes, but long novels fail when the model forgets character state, changes the main plot, reveals secrets too early, or lets characters act out of convenience.
-
-This skill solves that by making the agent behave like a disciplined writing room assistant:
-
-- build the story bible before drafting
-- write from approved chapter contracts
-- review every chapter for continuity
-- track character state and plot threads outside the chat window
-- learn from the author's edits so future drafts need less manual repair
-
-## Who This Is For
-
-- web-novel writers
-- serial fiction authors
-- game writers
-- screenwriters prototyping long arcs
-- prompt engineers building fiction workflows
-- anyone who wants AI help but still wants control over canon
-
-## What It Does
-
-- Initializes a complete novel project folder.
-- Creates and maintains `canon/`, `outline/`, `memory/`, `drafts/`, `reviews/`, and `research/`.
-- Forces each chapter through a contract before prose drafting.
-- Checks chapter drafts against approved canon.
-- Tracks who knows what, which secrets remain hidden, and which plot threads are unpaid.
-- Converts the author's revisions into an `author_editing_profile`.
-- Supports trend and hook research without pasting raw memes into prose.
-
-## Installation
-
-Copy the `novel-writer/` folder into your agent's skills directory.
-
-`novel-writer` is still the skill folder name in this release. The public project name is now PlotRail.
-
-For Codex:
+It turns a novel from one fragile chat into a durable project with approved canon, chapter contracts, continuity reviews, memory ledgers, and author editing preferences.
 
 ```text
-C:\Users\<you>\.codex\skills\novel-writer
+One prompt should not carry an entire book.
+PlotRail gives the agent rails: canon first, contract before prose, review after every draft.
 ```
 
-For Claude Code:
+## Watch the Demo
+
+<p align="center">
+  <a href="assets/plotrail-promo.mp4">
+    <img src="assets/plotrail-promo-preview.gif" alt="PlotRail demo video preview" width="360">
+  </a>
+</p>
+
+<p align="center">
+  <a href="assets/plotrail-promo.mp4"><strong>Watch the full 42-second MP4 demo</strong></a>
+</p>
+
+## Why Writers Star This
+
+AI can write fluent scenes. Long fiction breaks when the model:
+
+- changes character motivation halfway through a volume
+- reveals secrets before the reader or cast should know them
+- forgets unpaid plot threads and foreshadowing
+- lets the protagonist win because the outline needs them to win
+- ignores how the author revised earlier chapters
+
+PlotRail solves this by making the agent work like a disciplined writing-room assistant. It writes files, asks for approval before canon changes, and reviews drafts against the story state instead of trusting chat memory.
+
+## What You Get
+
+| Capability | What PlotRail Creates |
+| --- | --- |
+| Story bible | `canon/world.md`, `characters.yaml`, `relationships.yaml`, `timeline.yaml` |
+| Chapter planning | `outline/chapters.yaml` contracts before prose |
+| Drafting lane | `drafts/chNNN.md` with canon-bound creative freedom |
+| Continuity review | `reviews/chNNN_continuity.md` after each chapter |
+| Long memory | `memory/chapter_summaries.yaml`, `state_ledger.yaml`, `change_requests.yaml` |
+| Author preference loop | `memory/author_editing_profile.md` learned from revisions |
+
+## Install In 30 Seconds
+
+Current installable skill folder: `novel-writer`.
+
+```bash
+git clone https://github.com/waylean/plotrail.git
+mkdir -p ~/.codex/skills
+cp -R plotrail/novel-writer ~/.codex/skills/novel-writer
+```
+
+Restart Codex if it does not detect the skill.
+
+For Claude Code, copy the same folder to:
 
 ```text
 ~/.claude/skills/novel-writer
 ```
 
-Restart the agent if it does not detect the skill.
+More options: see [INSTALL.md](INSTALL.md).
 
-If your tool does not support automatic skill loading, open `novel-writer/SKILL.md`, copy the core rules into your system prompt or project instructions, and use `references/` as project knowledge.
+## First Prompt To Run
 
-## Usage
-
-Then open or create a novel folder and say:
+Open or create a novel folder, then say:
 
 ```text
 Use the novel-writer skill.
+
 Initialize this folder as a long-form novel project.
 Do not write prose yet.
-First help me turn my theme, core ideas, target readers, taboo content, and ending direction into proposals.
+
+First help me turn my theme, core idea, target readers, taboo content,
+style references, and ending direction into 3 story proposals.
+Keep proposals outside canon until I approve one.
 ```
 
-## Model Compatibility
+Then provide:
 
-This skill works best with AI agents that can read and write local files and follow multi-step instructions. It is not tied to one model provider.
+```text
+Theme:
+Core idea:
+Genre:
+Target readers:
+Main character:
+Antagonist:
+Comparable works:
+Things I dislike:
+Ending direction:
+Platform / length target:
+```
 
-Recommended:
+## Workflow
 
-- Codex with a strong reasoning/coding model.
-- Claude Code with Skills support.
-- Any agent that supports `SKILL.md`, local file tools, and long project workflows.
+```mermaid
+flowchart LR
+  A["Idea"] --> B["Proposals"]
+  B --> C["Approved canon"]
+  C --> D["Chapter contract"]
+  D --> E["Draft"]
+  E --> F["Continuity review"]
+  F --> G["Author revision"]
+  G --> H["Memory and editing profile"]
+  H --> D
+```
 
-## Basic Workflow
-
-1. Author gives theme, core idea, target readers, style references, taboo content, and ending preference.
-2. Agent creates proposals, not canon.
-3. Author approves the direction.
-4. Agent writes approved material into `canon/` and `outline/`.
-5. Agent prepares a chapter contract.
-6. Author approves the chapter contract.
-7. Agent drafts the chapter.
-8. Agent writes a continuity review.
-9. Author revises.
-10. Agent learns from the revision and updates the editing profile.
+1. The author gives the theme, audience, constraints, and ending preference.
+2. The agent creates proposals, not canon.
+3. The author approves a direction.
+4. The agent writes approved material into `canon/` and `outline/`.
+5. Every chapter starts with a contract.
+6. Prose is drafted only after the contract is accepted or explicitly requested.
+7. A continuity review checks canon, character state, secrets, timeline, and hook strength.
+8. Author revisions become reusable editing preferences.
 
 ## Case Study
 
-The `examples/假如我成为了反派/` folder shows how the workflow applies to a working Chinese web-novel project.
+The [`examples/假如我成为了反派/`](examples/%E5%81%87%E5%A6%82%E6%88%91%E6%88%90%E4%B8%BA%E4%BA%86%E5%8F%8D%E6%B4%BE/) folder shows PlotRail on a working Chinese web-novel project.
 
-The `chapters/` folder includes the first 11 chapters so users can judge the prose quality directly. The analysis file explains how the workflow improves causality, hooks, protagonist agency, antagonist competence, rule placement, and moral cost.
+The first 11 chapters demonstrate how the workflow improves:
+
+- protagonist agency through procedure, constraint, fallback, and cost
+- antagonist competence
+- rule placement and reveal timing
+- chapter-end hooks
+- moral consequence after taking over the villain's body
+- continuity across a serial arc
+
+The key author preference extracted from the revisions:
+
+```text
+Do not let the protagonist win because the plot needs him to win.
+Show the procedure, constraint, test, fallback, and cost.
+```
+
+Open the proof files:
+
+- [sample chapter contract](examples/%E5%81%87%E5%A6%82%E6%88%91%E6%88%90%E4%B8%BA%E4%BA%86%E5%8F%8D%E6%B4%BE/sample-chapter-contract.md)
+- [sample continuity review](examples/%E5%81%87%E5%A6%82%E6%88%91%E6%88%90%E4%B8%BA%E4%BA%86%E5%8F%8D%E6%B4%BE/sample-continuity-review.md)
+- [author editing profile](examples/%E5%81%87%E5%A6%82%E6%88%91%E6%88%90%E4%B8%BA%E4%BA%86%E5%8F%8D%E6%B4%BE/author-editing-profile.md)
+
+## Model Compatibility
+
+PlotRail works best with agents that can read and write local files:
+
+- Codex with a strong reasoning/coding model
+- Claude Code with Skills support
+- any agent that supports `SKILL.md`, local project files, and multi-step workflows
+
+If your tool does not support automatic skill loading, open `novel-writer/SKILL.md`, copy the core rules into your system prompt or project instructions, and use `novel-writer/references/` as project knowledge.
+
+## Repository Map
+
+```text
+novel-writer/
+  SKILL.md
+  references/
+    canon-schemas.md
+    chapter-workflow.md
+    human-edit-loop.md
+  scripts/
+    init_novel_project.py
+examples/
+  假如我成为了反派/
+assets/
+  plotrail-wordmark.svg
+  plotrail-promo-preview.gif
+  plotrail-promo.mp4
+```
+
+## Rename Notice
+
+PlotRail was formerly published as `novel-writer`. The repository name changed to make the purpose clearer: keeping AI-assisted long-form fiction on a durable plot rail. The installable skill folder and invocation name remain `novel-writer` for compatibility.
 
 ## License
 

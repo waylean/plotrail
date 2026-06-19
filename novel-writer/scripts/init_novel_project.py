@@ -87,7 +87,8 @@ def write_if_missing(path: Path, content: str, force: bool) -> str:
     if path.exists() and not force:
         return "kept"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content, encoding="utf-8", newline="\n")
+    with path.open("w", encoding="utf-8", newline="\n") as file:
+        file.write(content)
     return "written"
 
 
