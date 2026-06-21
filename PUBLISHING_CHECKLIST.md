@@ -5,9 +5,9 @@
 Publish as a **skill-first** project:
 
 ```text
-ai-novel-writer-skill/
+plotrail/
   README.md
-  README.zh-CN.md
+  README.en.md
   PUBLISHING_CHECKLIST.md
   CHANGELOG.md
   LICENSE
@@ -49,7 +49,7 @@ Current license: MIT, copyright holder `waylean`.
 
 ## Before Publishing
 
-- Decide whether to include English, Chinese, or both README files.
+- Keep `README.md` as Chinese default and `README.en.md` as the optional English entry.
 - Confirm that publishing the first 11 example chapters is intended.
 - Run the skill validator if available.
 - Test `scripts/init_novel_project.py` in a blank folder.

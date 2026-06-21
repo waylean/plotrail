@@ -1,0 +1,4 @@
+interface:
+  display_name: "PlotRail 入轨"
+  short_description: "已有稿件摄取、诊断与逐章精修"
+  default_prompt: "使用 $plotrail-intake 诊断、校正、润色、去 AI 味或轻度精修已有章节，并整理最小必要信息交接给 PlotRail 继续写。"

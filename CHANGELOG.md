@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- Added `plotrail-intake` as a companion skill for existing manuscript diagnosis, refinement, style learning, continuity audit, and compact handoff.
+- Changed the default GitHub README to Chinese and moved the English version to `README.en.md`.
+- Updated skill UI metadata so PlotRail and PlotRail Intake display Chinese names and default prompts.
+- Added the standalone `plotrail-intake` repository link.
+
 ## 0.2.1
 
 - Reworked `README.md` and `README.zh-CN.md` into a product-page structure.
