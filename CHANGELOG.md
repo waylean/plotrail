@@ -19,14 +19,14 @@
 
 ## 0.2.0
 
-- Renamed the public project from `novel-writer` to PlotRail.
+- Aligned the public project name and installable skill name around PlotRail / `plotrail`.
 - Added README rename notices in English and Chinese.
-- Kept the installable skill folder name as `novel-writer` for compatibility.
+- Use `plotrail` as the installable main skill folder and invocation name.
 
 ## 0.1.0
 
 - Initial public skill package.
-- Added `novel-writer` Codex Skill.
+- Added `plotrail` Codex Skill.
 - Added project initializer script.
 - Added canon schemas, chapter workflow, and human edit loop references.
 - Added case study for `假如我成为了反派`.

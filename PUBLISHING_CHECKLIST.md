@@ -11,7 +11,7 @@ plotrail/
   PUBLISHING_CHECKLIST.md
   CHANGELOG.md
   LICENSE
-  novel-writer/
+  plotrail/
   examples/
 ```
 
@@ -34,7 +34,7 @@ Add a harness later if you want automated tests, sample project generation, chap
 - macOS/Linux and Windows install paths.
 - Smoke-test command for `scripts/init_novel_project.py`.
 - Explanation that the author approves canon changes.
-- Rename note for `PlotRail` vs installable `novel-writer` folder, placed after the value proposition.
+- Invocation-name note for the `plotrail` skill folder, placed after the value proposition.
 
 ## Skill Folder Should Include
 

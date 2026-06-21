@@ -1,13 +1,13 @@
 ---
 name: plotrail-intake
-description: "PlotRail companion workflow for existing fiction manuscripts. Use when diagnosing pasted chapters or long prose, correcting or lightly revising an existing chapter, ingesting existing novel drafts before continuation, refining chapters without losing author intent, learning author style from prose or revised drafts, extracting canon and continuity state from manuscripts, preparing compact handoff briefs for novel-writer, or auditing long-form fiction for character, timeline, knowledge-state, plot-thread, hook, pacing, voice, and style consistency. Do not use for new project initialization, new chapter planning, drafting from approved canon, or approved canon/memory updates unless existing prose must be read first; use novel-writer for those writing-pipeline tasks."
+description: "PlotRail companion workflow for existing fiction manuscripts. Use when diagnosing pasted chapters or long prose, correcting or lightly revising an existing chapter, ingesting existing novel drafts before continuation, refining chapters without losing author intent, learning author style from prose or revised drafts, extracting canon and continuity state from manuscripts, preparing compact handoff briefs for PlotRail, or auditing long-form fiction for character, timeline, knowledge-state, plot-thread, hook, pacing, voice, and style consistency. Do not use for new project initialization, new chapter planning, drafting from approved canon, or approved canon/memory updates unless existing prose must be read first; use the `plotrail` skill for those writing-pipeline tasks."
 ---
 
 # PlotRail Intake
 
 Use this skill for existing prose. Treat the manuscript as evidence, not approved canon, until the user approves extracted facts or the project already marks them as accepted.
 
-PlotRail Intake is the editor and intake layer for PlotRail. It helps an agent read existing chapters, diagnose problems, refine text conservatively, extract reusable story state, learn author style, audit continuity, and prepare compact handoff briefs for `novel-writer`.
+PlotRail Intake is the editor and intake layer for PlotRail. It helps an agent read existing chapters, diagnose problems, refine text conservatively, extract reusable story state, learn author style, audit continuity, and prepare compact handoff briefs for PlotRail (`plotrail`).
 
 ## Core Rule
 
@@ -32,11 +32,11 @@ Choose the smallest mode that answers the user:
 4. **Manuscript intake** - The user provides multiple chapters or a folder before continuation. Read `references/intake-protocol.md`.
 5. **Style learning** - The user asks to learn voice, compare original/revised drafts, or build an editing profile. Read `references/style-learning.md`.
 6. **Long-form audit** - The user asks for consistency across chapters. Read `references/continuity-audit.md`.
-7. **Handoff to PlotRail writing** - The next step is planning or drafting with `novel-writer`. Read `references/novel-writer-handoff.md` and `references/shared-context.md`.
+7. **Handoff to PlotRail writing** - The next step is planning or drafting with PlotRail (`plotrail`). Read `references/plotrail-handoff.md` and `references/shared-context.md`.
 
 Boundary rules:
 
-- If the user wants a new project, approved canon, a chapter contract, or new prose from an accepted contract, switch to `novel-writer`.
+- If the user wants a new project, approved canon, a chapter contract, or new prose from an accepted contract, switch to `plotrail`.
 - If the user wants to read existing prose before writing, run `plotrail-intake` first and hand off a compact brief.
 - If the user says "校正", "润色", "改得更好看", "去AI味", "polish", or "copyedit" without asking for diagnosis first, default to `light` refinement, apply `references/anti-ai-prose.md`, and deliver a revised text or section patch, not only a report.
 
@@ -49,7 +49,7 @@ Boundary rules:
 5. Make a concise edit plan with priority and edit authority.
 6. Revise only within the requested authority.
 7. When project files exist, write reusable outputs to `reviews/`, `memory/`, or `outline/` as candidates first.
-8. For continuation, produce a compact handoff brief instead of passing every diagnosis note to `novel-writer`.
+8. For continuation, produce a compact handoff brief instead of passing every diagnosis note to PlotRail.
 
 ## Cold-Start Behavior
 
@@ -115,9 +115,9 @@ source manuscript files
 
 Use candidate files for extracted state until the user approves it. If the project already has accepted canon and memory, compare against it and record conflicts rather than silently changing it.
 
-## Shared Context With novel-writer
+## Shared Context With PlotRail
 
-Do not duplicate `novel-writer` reference material inside this skill. Read `references/shared-context.md` for artifact ownership, chat-only handoff rules, P0 conflict gates, and the minimal context packet.
+Do not duplicate PlotRail reference material inside this skill. Read `references/shared-context.md` for artifact ownership, chat-only handoff rules, P0 conflict gates, and the minimal context packet.
 
 ## Trust Rules
 
@@ -148,5 +148,5 @@ Avoid:
 - Read `references/anti-ai-prose.md` for every correction, polish, light revision, style calibration, or request to remove AI flavor.
 - Read `references/style-learning.md` for author voice, style snapshots, original/revised comparisons, or editing profiles.
 - Read `references/continuity-audit.md` for multi-chapter consistency review.
-- Read `references/novel-writer-handoff.md` when preparing files for PlotRail / `novel-writer`.
+- Read `references/plotrail-handoff.md` when preparing files for PlotRail (`plotrail`).
 - Read `references/shared-context.md` when both PlotRail skills are used and context size matters.

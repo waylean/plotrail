@@ -31,12 +31,12 @@ FILES = {
 """,
     "README.md": """# Novel Project
 
-This is a long-form novel project managed with the `novel-writer` Codex Skill.
+This is a long-form novel project managed with the PlotRail (`plotrail`) Codex Skill.
 
 Start by opening this folder in Codex and saying:
 
 ```text
-Use the novel-writer skill.
+Use $plotrail.
 Read AGENTS.md and inspect canon/, outline/, and memory/.
 I want to develop this novel from theme and core ideas.
 First generate proposals; do not write canon or chapter prose yet.
@@ -47,7 +47,7 @@ First generate proposals; do not write canon or chapter prose yet.
 Paste this into a new Codex project session:
 
 ```text
-Use the novel-writer skill.
+Use $plotrail.
 
 Read AGENTS.md and inspect canon/, outline/, and memory/.
 I want to create or continue this novel.

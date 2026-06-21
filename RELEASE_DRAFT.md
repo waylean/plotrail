@@ -6,7 +6,7 @@ PlotRail v0.2.1 - Canon-aware AI fiction skill
 
 ## Summary
 
-This release packages PlotRail as a clearer skill-first project page for long-form AI fiction writing. It keeps the installable skill folder name as `novel-writer` while presenting the public project as PlotRail.
+This release packages PlotRail as a clearer skill-first project page for long-form AI fiction writing. It keeps the installable skill folder name as `plotrail` while presenting the public project as PlotRail.
 
 ## Highlights
 
@@ -21,13 +21,13 @@ This release packages PlotRail as a clearer skill-first project page for long-fo
 ```bash
 git clone https://github.com/waylean/plotrail.git
 mkdir -p ~/.codex/skills
-cp -R plotrail/novel-writer ~/.codex/skills/novel-writer
+cp -R plotrail/plotrail ~/.codex/skills/plotrail
 ```
 
 ## First Prompt
 
 ```text
-Use the novel-writer skill.
+Use $plotrail.
 
 Initialize this folder as a long-form novel project.
 Do not write prose yet.
@@ -41,5 +41,5 @@ Keep proposals outside canon until I approve one.
 Run:
 
 ```bash
-python3 novel-writer/scripts/init_novel_project.py /tmp/plotrail-demo
+python3 plotrail/scripts/init_novel_project.py /tmp/plotrail-demo
 ```

@@ -1,4 +1,0 @@
-interface:
-  display_name: "PlotRail 剧情轨"
-  short_description: "长篇小说 canon、章节合同与连续性工作流"
-  default_prompt: "使用 $novel-writer 初始化或继续一个 AI 辅助长篇小说项目，建立 canon、章节合同、连续性审稿、长期记忆和作者编辑画像。"

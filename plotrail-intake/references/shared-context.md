@@ -1,6 +1,6 @@
 # Shared Context Protocol
 
-Use this reference when `plotrail-intake` and `novel-writer` are both relevant in one task.
+Use this reference when `plotrail-intake` and PlotRail (`plotrail`) are both relevant in one task.
 
 ## Goal
 
@@ -17,7 +17,7 @@ Minimize redundant context while preserving story safety. The two skills should 
 - continuity audits from existing chapters
 - continuation briefs
 
-`novel-writer` owns:
+PlotRail (`plotrail`) owns:
 
 - project initialization
 - approved canon and outline maintenance
@@ -30,7 +30,7 @@ Minimize redundant context while preserving story safety. The two skills should 
 
 Prefer these over repeated prose summaries. Ownership:
 
-| Artifact | Intake may write | novel-writer may write | Include in handoff when |
+| Artifact | Intake may write | PlotRail may write | Include in handoff when |
 | --- | --- | --- | --- |
 | `memory/chapter_summaries.yaml` | read only unless explicitly approved | approved summaries after approved prose | approved recent facts affect next chapter |
 | `memory/chapter_summary_candidates.yaml` | yes | read as candidates | manuscript chapter facts need confirmation |
@@ -43,7 +43,7 @@ Prefer these over repeated prose summaries. Ownership:
 
 ## Minimal Context Packet
 
-When handing work from `plotrail-intake` to `novel-writer`, include only:
+When handing work from `plotrail-intake` to PlotRail, include only:
 
 1. the continuation brief
 2. relevant character state entries
@@ -57,7 +57,7 @@ Do not include:
 - all review notes
 - complete audit tables when only one risk matters
 - full style analysis when a short drafting requirement is enough
-- duplicated canon schemas from `novel-writer`
+- duplicated canon schemas from PlotRail
 
 ## Chat-Only Briefs
 
@@ -77,8 +77,8 @@ If both skills are invoked in a single user request:
 
 1. Run `plotrail-intake` first for existing prose.
 2. Produce or refresh a compact continuation brief.
-3. Switch to `novel-writer` only after the brief is ready.
-4. Let `novel-writer` read the brief and its own relevant canon/memory files.
+3. Switch to PlotRail (`plotrail`) only after the brief is ready.
+4. Let PlotRail read the brief and its own relevant canon/memory files.
 5. Avoid re-reading the same source chapters unless the chapter contract depends on exact wording.
 
 ## Confidence Control
@@ -100,7 +100,7 @@ Approval status:
 - `needs_author`: ask or design a confirmation beat.
 - `rejected`: do not use.
 
-`novel-writer` may draft from `project-confirmed + approved` facts and approved canon. It should treat `text-confirmed + candidate`, inferred, uncertain, or proposed items as constraints to confirm, repair, or preserve as risks.
+PlotRail may draft from `project-confirmed + approved` facts and approved canon. It should treat `text-confirmed + candidate`, inferred, uncertain, or proposed items as constraints to confirm, repair, or preserve as risks.
 
 ## P0 Conflict Gate
 
@@ -108,5 +108,5 @@ If intake finds a P0 conflict with approved canon, a never-do rule, or core worl
 
 - do not update approved canon or durable memory
 - do not proceed to prose drafting
-- either ask the author to approve a retcon or hand `novel-writer` a repair-first chapter contract brief
+- either ask the author to approve a retcon or hand PlotRail a repair-first chapter contract brief
 - make the first contract purpose "repair or explain the conflict" before new plot advancement

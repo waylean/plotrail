@@ -1,6 +1,6 @@
 # Case Study: 假如我成为了反派
 
-This case study describes how the `novel-writer` skill supports a long-form Chinese web-novel project.
+This case study describes how the PlotRail skill supports a long-form Chinese web-novel project.
 
 The project was originally organized with durable files:
 

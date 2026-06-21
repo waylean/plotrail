@@ -1,9 +1,9 @@
 ---
-name: novel-writer
+name: plotrail
 description: Long-form AI novel writing workflow for Codex. Use when creating, planning, drafting, reviewing, revising, or continuing a novel with durable canon files, character bibles, plot threads, chapter contracts, continuity checks, trend research, and memory/state ledgers so chapters stay aligned with approved story logic.
 ---
 
-# Novel Writer
+# PlotRail
 
 Use this skill to run a novel as a durable project, not as one long chat. Treat project files as the source of truth and the conversation as the workbench.
 

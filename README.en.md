@@ -20,7 +20,7 @@ PlotRail is a canon-aware AI fiction workflow for Codex, Claude Code, and other 
 
 It now includes two complementary skills:
 
-- `novel-writer`: start from an idea, build canon, plan chapter contracts, draft prose, and maintain long-term story memory.
+- `plotrail`: start from an idea, build canon, plan chapter contracts, draft prose, and maintain long-term story memory.
 - `plotrail-intake`: bring existing prose into the same system through diagnosis, refinement, style learning, continuity audit, and compact handoff.
 
 ```text
@@ -62,7 +62,7 @@ One useful suggestion was: what if the agent could read already-written chapters
 
 That became `plotrail-intake`.
 
-`novel-writer` is strongest at the beginning of a project: build canon, plan the chapter, draft inside constraints, then review. But many writers already have prose: one pasted chapter, a messy old draft, or a hand-written manuscript that should not be thrown away.
+`plotrail` is strongest at the beginning of a project: build canon, plan the chapter, draft inside constraints, then review. But many writers already have prose: one pasted chapter, a messy old draft, or a hand-written manuscript that should not be thrown away.
 
 `plotrail-intake` handles that lane:
 
@@ -71,7 +71,7 @@ That became `plotrail-intake`.
 - reduce AI-flavored polish while preserving author voice
 - learn style from manuscript samples
 - audit long-form consistency across chapters
-- produce a compact `continuation_brief` for `novel-writer`
+- produce a compact `continuation_brief` for `plotrail`
 
 Together, the two skills should do more than either one alone: one sets rails before writing, the other keeps finished prose from drifting after it exists.
 
@@ -85,7 +85,7 @@ Current capabilities:
 - review each chapter against canon, character state, secrets, timeline, and hook strength
 - learn reusable editing preferences from author revisions
 - diagnose, refine, and audit existing manuscript material
-- pass only the smallest useful brief between `plotrail-intake` and `novel-writer`
+- pass only the smallest useful brief between `plotrail-intake` and PlotRail
 
 File outputs:
 
@@ -101,14 +101,14 @@ File outputs:
 
 ## Skills
 
-- `novel-writer`: use for creating a long-form project, building canon, preparing chapter contracts, drafting new chapters, reviewing drafts, and maintaining accepted memory.
-- `plotrail-intake`: use for existing prose: pasted chapters, old drafts, manuscript folders, chapter diagnosis, refinement, style learning, continuity audit, and compact handoff to `novel-writer`. Standalone repository: [waylean/plotrail-intake](https://github.com/waylean/plotrail-intake).
+- `plotrail`: PlotRail main skill for creating a long-form project, building canon, preparing chapter contracts, drafting new chapters, reviewing drafts, and maintaining accepted memory.
+- `plotrail-intake`: use for existing prose: pasted chapters, old drafts, manuscript folders, chapter diagnosis, refinement, style learning, continuity audit, and compact handoff to PlotRail. Standalone repository: [waylean/plotrail-intake](https://github.com/waylean/plotrail-intake).
 
-When both skills are used, `plotrail-intake` should produce a concise continuation brief instead of passing all raw chapters and full audit notes to `novel-writer`.
+When both skills are used, `plotrail-intake` should produce a concise continuation brief instead of passing all raw chapters and full audit notes to PlotRail.
 
 ```mermaid
 flowchart LR
-  A["New idea"] --> B["novel-writer"]
+  A["New idea"] --> B["PlotRail"]
   B --> C["canon / chapter contracts / drafts"]
   C --> D["continuity review"]
   E["Existing prose / old drafts / pasted chapter"] --> F["plotrail-intake"]
@@ -124,7 +124,7 @@ Install both complementary skill folders:
 ```bash
 git clone https://github.com/waylean/plotrail.git
 mkdir -p ~/.codex/skills
-cp -R plotrail/novel-writer ~/.codex/skills/novel-writer
+cp -R plotrail/plotrail ~/.codex/skills/plotrail
 cp -R plotrail/plotrail-intake ~/.codex/skills/plotrail-intake
 ```
 
@@ -133,7 +133,7 @@ Restart Codex if it does not detect the skill.
 For Claude Code, copy the same folder to:
 
 ```text
-~/.claude/skills/novel-writer
+~/.claude/skills/plotrail
 ~/.claude/skills/plotrail-intake
 ```
 
@@ -144,7 +144,7 @@ More options: see [INSTALL.md](INSTALL.md).
 Open or create a novel folder, then say:
 
 ```text
-Use the novel-writer skill.
+Use $plotrail.
 
 Initialize this folder as a long-form novel project.
 Do not write prose yet.
@@ -244,13 +244,13 @@ PlotRail works best with agents that can read and write local files:
 - Claude Code with Skills support
 - any agent that supports `SKILL.md`, local project files, and multi-step workflows
 
-If your tool does not support automatic skill loading, open `novel-writer/SKILL.md`, copy the core rules into your system prompt or project instructions, and use `novel-writer/references/` as project knowledge.
+If your tool does not support automatic skill loading, open `plotrail/SKILL.md`, copy the core rules into your system prompt or project instructions, and use `plotrail/references/` as project knowledge.
 For existing manuscripts, open `plotrail-intake/SKILL.md` and load only the reference file needed for the current task.
 
 ## Repository Map
 
 ```text
-novel-writer/
+plotrail/
   SKILL.md
   references/
     canon-schemas.md
@@ -267,7 +267,7 @@ plotrail-intake/
     refinement-workflow.md
     style-learning.md
     continuity-audit.md
-    novel-writer-handoff.md
+    plotrail-handoff.md
     shared-context.md
 examples/
   假如我成为了反派/
@@ -277,9 +277,9 @@ assets/
   plotrail-promo.mp4
 ```
 
-## Rename Notice
+## Invocation Name
 
-PlotRail was formerly published as `novel-writer`. The repository name changed to make the purpose clearer: keeping AI-assisted long-form fiction on a durable plot rail. The installable skill folder and invocation name remain `novel-writer` for compatibility.
+The installable main skill folder and invocation name are both `plotrail`. `plotrail-intake` is the companion skill for existing manuscript intake and refinement.
 
 ## License
 

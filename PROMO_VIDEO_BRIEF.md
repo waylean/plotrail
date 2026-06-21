@@ -15,7 +15,7 @@ Format: 1080x1920 vertical MP4, silent, designed for Douyin and Xiaohongshu back
 ## Prompt To Show
 
 ```text
-Use the novel-writer skill.
+Use $plotrail.
 Initialize this folder as a long-form novel project.
 Do not write prose yet.
 First generate 3 proposals from my theme, target readers,

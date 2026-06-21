@@ -1,10 +1,10 @@
-# novel-writer Handoff
+# PlotRail Handoff
 
-Use this reference when the next step is planning or drafting with PlotRail `novel-writer`.
+Use this reference when the next step is planning or drafting with the PlotRail (`plotrail`) skill.
 
 ## Purpose
 
-Produce a compact bridge from existing manuscript evidence to the writing workflow. The handoff should help `novel-writer` prepare the next chapter contract without re-reading every chapter, audit note, or raw manuscript file. Use `shared-context.md` as the source of truth for artifact ownership and anti-redundancy rules.
+Produce a compact bridge from existing manuscript evidence to the writing workflow. The handoff should help PlotRail prepare the next chapter contract without re-reading every chapter, audit note, or raw manuscript file. Use `shared-context.md` as the source of truth for artifact ownership and anti-redundancy rules.
 
 ## Handoff Rule
 
@@ -24,12 +24,12 @@ Exclude:
 - full diagnosis reports
 - low-priority line edits
 - long explanation of how the intake was performed
-- duplicated schemas already owned by `novel-writer`
+- duplicated schemas already owned by PlotRail
 
 ## Continuation Brief Template
 
 ```markdown
-# Continuation Brief For novel-writer
+# Continuation Brief For PlotRail
 
 ## Brief Metadata
 - brief_version:
@@ -38,7 +38,7 @@ Exclude:
 - evidence_index:
 - do_not_reload_unless:
 
-## Reader Instructions For novel-writer
+## Reader Instructions For PlotRail
 - Use this brief to prepare a chapter contract, not to update approved canon.
 - Treat candidate facts as constraints to confirm or repair.
 - Do not draft prose until P0 conflicts are resolved or made part of the contract.
@@ -101,13 +101,13 @@ memory/change_requests.yaml
 outline/continuation_brief_chNNN.md
 ```
 
-When the user approves candidates, `novel-writer` can convert them into approved `canon/`, `outline/`, and `memory/` updates using its own rules.
+When the user approves candidates, PlotRail can convert them into approved `canon/`, `outline/`, and `memory/` updates using its own rules.
 
 ## Handoff Completion
 
 End with one of:
 
-- "Ready for `novel-writer` to prepare chapter N contract."
+- "Ready for PlotRail to prepare chapter N contract."
 - "Not ready for drafting; approve or resolve these candidates first."
 - "Need more manuscript context before continuation."
-- "Ready for `novel-writer` to prepare a repair-first chapter contract, but not ready for prose drafting."
+- "Ready for PlotRail to prepare a repair-first chapter contract, but not ready for prose drafting."
